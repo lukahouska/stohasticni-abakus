@@ -1,0 +1,47 @@
+\documentclass[twoside,11pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[frame]{matrika}
+\usepackage{mathtools}
+\usepackage{epstopdf}
+\usepackage{units}
+\usepackage{url}
+
+
+\begin{document}
+
+\MAT{1}{10}{2024}
+\naslov{Stohastični abakus}
+
+\avtor{Luka Houška}
+
+\institucija{Fakulteta za matematiko in fiziko \\ Univerza v Ljubljani}
+
+\date{23.10.2023}
+
+\klasifikacija{~} 
+\izvlecek{V članku je podrobno predstavljen stohastični abakus, kako algoritem deluje, zakaj deluje in zakaj se ustavi. S pomočjo stohastičnega abakusa so analizirane igre "podajanja evra" na različnih grafih, kar razkrije naravno povezavo s Fibonaccijevimi števili.}
+\title{Probabilistic abacus}
+\abstract{The article presents stochastic abacus in detail, how the algorithm works, why it works and why it stops. Using the stochastic abacus, pass-the-buck games are analyzed on various graphs, revealing a natural connection with the    Fibonacci numbers.}
+
+\glava\baselineskip=14.5pt
+
+\smallskip
+
+\section{Uvod}
+Igra podajanja evra se začne z $n$ igralci postavljenimi kot vozlišča grafa. En igralec ima v roki evro. Igra se igra izmenično, kjer v vsakem koraku igralec naključno zmaga ali pa poda evro enemu od igralcev na sosednjih vozliščih. Če ima vozlišče trenutnega igralca stopnjo $d$ je vsak od $d + 1$ izidov enako verjeten. Pri igri bomo uporabljali koncept chip firing, katerega je kot sredstvo za poučevanje verjetnosti osnovnošolcem razvil oče stohastičnega abakusa Arthur Engel.
+Osnovna ideja chip firinga je preprosta. Če imamo podan graf, si predstavljamo, da na vozlišča postavimo nekaj žetonov. Če je število žetonov na vozlišču $v$ večje ali enako kot stopnja $v$, potem lahko "izstrelimo" $v$ tako, da po vsaki povezavi, ki ima za eno od krajišč vozlišče $v$ pošljemo en žeton do sosednjega vozlišča. Število žetonov v vozlišču $v$ se po izstrelitvi zmanjša za stopnjo $v$, vsakemu od sosednjih vozlišč $v$ pa se število žetonov poveča za ena. 
+Koncept chip firing bomo implementirali na \emph{usmerjene grafe}, kjer bo izstrelitev vozlišča $v$ pomenila, da bo po vsaki izhodni povezavi iz $v$ pošljemo en žeton. Natančneje, usmerjeni graf bo prehodni graf za absorbirajočo Markovsko verigo, ki ustreza igri podajanja evra. Naša naloga je, da natančno predstavimo Engelov originalni koncept, ki uporablja chip firing algoritem kot sredstvo za računanje verjetnosti in pričakovanih vrednosti. Naš prvi korak je spoznati Engelov algoritem.
+
+\section{Stohastični abakus}
+V začetku 1970-ih je Engel razvil svoj algoritem, ki ga je kasneje poimenoval stohastični abakus, saj premikanje žetonov po povezavah v grafu za namen računanja spominja na tradicionalni abakus.
+\indent Predpostavimo, da imamo tako časovno diskretno, absorbirajočo Markovsko verigo s končnim število stanj, da so vse prehodne verjetnosti racionalne. Predstavimo jo z usmerjenim grafom, kjer so stanja vozlišča in usmerjena povezava med vozliščema $u$ in $v$ obstaja natanko tedaj, ko je verjetnost direktnega prehoda iz $u$ v $v$ pozitivna. 
+Natančneje, če je $q$ najmanjši skupni imenovalec vseh prehodnih verjetnosti iz stanja $u$ in je verjetnost prehoda iz $u$ v $v$ enaka $p/q$, potem postavimo p usmerjenih povezav iz $u$ v $v$. Če to naredimo za vse sosede $u$, je izhodna stopnja $u$ enaka $q$. Zato se prehodne verjetnosti lahko razberejo iz usmerjenega grafa brez uporabe uteži na povezavah. 
+Uporabljali bomo izraza \emph{notranja vozlišča} za povrnljiva stanja in \emph{končna vozlišča} za absorbirajoča stanja.
+
+
+
+
+
+\end{document}
