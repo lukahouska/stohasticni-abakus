@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1698873422 "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" "luka_houska_clanek.pdf" "luka_houska_clanek" 1698873424 0
+["pdflatex"] 1699022761 "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" "luka_houska_clanek.pdf" "luka_houska_clanek" 1699022763 0
   "C:/Users/Luka/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1698158973 82863 fc06390459ad37febe7d55553c8cd620 ""
   "C:/Users/Luka/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1698159077 24151861 2bef01845ce9f4ce5615a5c669f61c62 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -38,6 +38,7 @@
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmu10.tfm" 1136765053 1276 d1b8c21fa8328272b4e5e6bc10761e6e ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb" 1247593066 31983 5d427b4625a4a5976c1b1c43cab14bba ""
+  "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247593067 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247593067 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247593066 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247593066 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
@@ -116,9 +117,9 @@
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/tex/latex/units/units.sty" 1469025550 2206 65ad9fb19763b1681bea4cb389fe84f8 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/tex/xelatex/xetexconfig/crop.cfg" 1169250894 305 57c5d049d73b46b49f97b41eaa29558b ""
-  "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" 1698873421 9234 cf4e668b24ddf596a5c1c409592548ed ""
-  "luka_houska_clanek.aux" 1698873424 365 38d3199c954b3cb3c8dd8ab870f0e40d "pdflatex"
-  "luka_houska_clanek.tex" 1698873421 9234 cf4e668b24ddf596a5c1c409592548ed ""
+  "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" 1699022759 15446 42efd261cef402230328079c99aab7b8 ""
+  "luka_houska_clanek.aux" 1699022763 715 dc7810cb6b3bd52ed29c5fbebaf51da7 "pdflatex"
+  "luka_houska_clanek.tex" 1699022759 15446 42efd261cef402230328079c99aab7b8 ""
   "matrika.sty" 1698086162 8841 b054e2b9565078f4935adde2c2a4f09d ""
   "oznake.sty" 1698086162 3496 f566e40d6205a1186536cae28fc501af ""
   "pisave.sty" 1698086162 2130 5abd30053f800ea1676722ededf4b821 ""
