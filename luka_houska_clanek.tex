@@ -8,7 +8,7 @@
 \usepackage{units}
 \usepackage{url}
 \usepackage{amsfonts}
-
+\usepackage{amsmath}
 
 
 \begin{document}
@@ -43,7 +43,8 @@ V začetku 1970-ih je Engel razvil svoj algoritem, ki ga je kasneje poimenoval s
 Natančneje, če je $q$ najmanjši skupni imenovalec vseh prehodnih verjetnosti iz stanja $u$ in je verjetnost prehoda iz $u$ v $v$ enaka $p/q$, potem postavimo p usmerjenih povezav iz $u$ v $v$. Če to naredimo za vse sosede $u$, je izhodna stopnja $u$ enaka $q$. Zato se prehodne verjetnosti lahko razberejo iz usmerjenega grafa brez uporabe uteži na povezavah. 
 Uporabljali bomo izraza \emph{notranja vozlišča} za minljiva stanja in \emph{končna vozlišča} za absorbirajoča stanja. \\
 \indent Ideja algortima je, da začnemo s praznimi vozlišči in dodajamo žetone na začetno stanje, ki ga bomo poimenovali začetno vozlišče. Ko je v začetnem vozlišču dovolj žetonov, ga izstrelimo tako, da po povezavah do sosednjih vozlišč pošljemo žetone v razmerju, ki odražajo prehodne verjetnosti. Ponavljamo postopek dodajanja žetonov v začetno vozlišče in izstreljevanja dokler nima vsak od sosedov dovolj žetonov, da izstrelimo te itn. Predstavljajmo si, da ponavljamo postopek dodajanja žetonov in izstrelitev vozlišč in
-da je na neki točki število žetonov na notranjih vozliščih enako začetnemu. Engel je utemeljil, da je v tem trenutku število žetonov v končnih vozliščih proporcionalno njenim verjetnostim, saj premikanje žetonov po grafu upošteva prehodne verjetnosti. Če smo bolj natančni: če ima končno vozlišče $k$ žetonov in je število vseh dodanih žetonov v začetno vozlišče $c$, potem je verjetnost, da pridemo v to absorbirajoče stanje iz začetnega stanja enaka $k/c$. Ker smo ustvarili periodičen proces; če dodajamo žetone v začetno vozlišče in ponovimo celoten postopek, bo končna razporeditev žetonov v končnih vozliščih enaka, saj more po zakonu o velikih številih biti v razmerju z verjetnostmi. Ker pa je proces periodičen je ena iteracija dovolj, da odkrijemo pravilna razmerja žetonov v končnih vozliščih. \\
+da je na neki točki število žetonov na notranjih vozliščih enako začetnemu. Engel je utemeljil, da je v tem trenutku število žetonov v končnih vozliščih proporcionalno njenim verjetnostim, saj premikanje žetonov po grafu upošteva prehodne verjetnosti. %Če smo bolj natančni: če ima končno vozlišče $k$ žetonov in je število vseh dodanih žetonov v začetno vozlišče $c$, potem je verjetnost, da pridemo v to absorbirajoče stanje iz začetnega stanja enaka $k/c$. Ker smo ustvarili periodičen proces; če dodajamo žetone v začetno vozlišče in ponovimo celoten postopek, bo končna razporeditev žetonov v končnih vozliščih enaka, saj more po zakonu o velikih številih biti v razmerju z verjetnostmi. Ker pa je proces periodičen je ena iteracija dovolj, da odkrijemo pravilna razmerja žetonov v končnih vozliščih. \\
+\newline 
 \indent S tem algoritmom sta dva potencialna problema in Engel je uspel razrešiti oba. Prvič, ni težko pokazati, da je vrstni red izstrelitev vozlišč nepomemben. To pomeni, da je sproščanje sistema, izstrelitev vseh primernih vozlišč, dobro definirano. Drugič, treba je ugotoviti kako prvotno postaviti žetone na notranjih vozliščih, da imamo zagotovljeno, da se bo sistem vrnil v to razporeditev. Izkaže se, da če na začetku vsako notranje vozlišče "kritično naložimo", tj. ima en žeton manj kot ima izhodnih povezav, dosežemo, da se bodo notranja vozlišča vrnila v "kritično naloženo" stanje po končnem številu dodanih žetonov v začetno vozlišče. Podajmo še dokaz.
 
 \vspace{\baselineskip}
@@ -53,7 +54,87 @@ Predpostavimo, da smo v metodi A v vozlišče $u$ dodali $m$ žetonov. Poglejmo 
 \indent Naj bo $e_{1},e_{2},\ldots,e_{n}$ zaporedje potez, ki smo jih naredili v metodi A in naj bo $f_{1},f_{2},\ldots,f_{v}$ zaporedje potez v metodi B. Potezi $e_{1}$ in $f_{1}$ sta enaki, saj v obeh primerih izstrelimo $r_{u}$ žetonov iz vozlišča $u$. Z indukcijo bomo dokazali, da se vse poteze $e_{i}, i \in [n] $ pojavijo nekje v zaporedju $\{ f_{j}\} _{j\in [v] }$. Predpostavimo, da smo za poteze $e_{1},e_{2},\ldots,e_{k}$ našli enake poteze $f_{i_1},f_{i_2},\ldots,f_{i_k}$. Poglejmo potezo $e_{k+1}$. Če je to poteza tipa 2, mora obstajati enaka poteza $f_{i_{k+1}}$, saj v obeh metodah naredimo $m$ takšnih potez.
 Predpostavimo sedaj, da je $e_{k+1}$ poteza tipa 1, recimo, da izstrelimo $r_{t}$ žetonov iz vozlišča $t$. Če obstaja taka poteza $f_{i_{k+1}}$, ki se pojavi poleg $f_{i_1},f_{i_2},\ldots,f_{i_k}$ in preden se vse te izvedejo, potem lahko to potezo izberemo kot ujemajočo se s $e_{k+1}$. Predpostavimo sedaj, da take poteze ni. Poteza $e_{k+1}$ je bila omogočena z zaporedjem potez $e_{1},e_{2},\ldots,e_{k}$. Torej more biti omogočena tudi z zaporedjem potez $f_{i_1},f_{i_2},\ldots,f_{i_k}$. Druge poteze, ki bi se lahko zgodile medtem ko se izvajajo te poteze, lahko kvečjemu povišajo število žetonov v stanju $t$. 
 Zato ponovno, imamo potezo, ki jo lahko enačimo z $e_{k+1}$ in indukcijski korak je dokazan. Analogno dokažemo, da so vsi $f_{j}, j \in [v] $ vsebovani v $\{e_{i} \}_{i\in [n] }$. Zato sta ti dve množici potez enaki, kar implicira, da metodi A in B vodita do enake končne porazdelitve, kar smo hoteli dokazati.
-\QED
+\hfill \QED
+
+\vspace{\baselineskip}
+
+Algoritem vrne dva pomembna rezultata, $n_{uj}$, pričakovano število obiskov stanja $j$, če proces začnemo v stanju $u$, in $b_{uj}$, verjetnost, da se proces konča v absorbirajočem stanju $j$, če se začne v stanju $u$. V naslednji trditvi bomo navedli formuli za ta dva rezultata.
+
+\begin{trditev}\label{formule}
+    Naj bo $u$ začetno stanje. Dalje naj bo $w_{uj}$ skupno število žetonov, ki so bili izstreljeni iz minljivega stanja $j$ in naj bo $v_{uk}$ število žetonov, ki so med algoritmom prispeli v absorbirajoče stanje $k$. Naj bo $v_{u} = \sum_{k} v_{uk}$. Potem velja: 
+    \begin{enumerate}
+        \item[a)] $n_{uj} = \frac{w_{uj}}{v_{u}}$
+        \item[b)] $b_{uj} = \frac{v_{uj}}{v_{u}}$
+    \end{enumerate}
+
+\end{trditev}
+
+
+\noindent
+Preden začnemo z dokazom vpeljimo še nekaj oznak. $S = \{1,2,\ldots,n\}$ naj bo množica stanj in $I = \{1,2,\ldots,r\}$ naj bo množica minljivih stanj. $P = (p_{ij})_{i,j=[n]}$ naj bo prehodna matrika markovske verige. Prehodno matriko potem lahko zapišemo kot 
+$ P =
+\begin{bmatrix} 
+    Q & R \\
+    0 & I 
+\end{bmatrix}
+$
+    , kjer $Q$ predstavlja prehodne verjetnosti le med minljivimi stanji, $R$ predstavlja prehodne verjetnosti iz minljivih stanj v absorbirajoča, $I$ pa je identična matrika, saj veriga ostane v absorbirajočih stanjih. Z $N = (I-Q)^{-1}$ označimo fundamentalno matriko markovske verige, njeni elementi $n_{ij}$  pa predstavljajo pričakovano število obiskov stanja $j\in S$, če začnemo v stanju $i\in I$. V dokazu točke a) bomo potrebovali še sledeči lemi.  
+\smallskip
+
+\begin{lema}\label{markovske}
+    Naj bo $x$ minljivo stanje v markovski verigi s končnim številom stanj. Naj bo $p_{y,x}(n)$ verjetnost prehoda iz stanja $y$ v stanje $x$ v $n$ korakih. Potem velja $\lim_{n \to \infty} p_{y,x}(n) = 0$.
+\end{lema}
+
+\begin{lema}\label{matrike}
+    Naj bo $A$ končna matrika in naj bo njen spektralni radij $\rho(A)<1$. Potem je matrika $(I-A)$ obrnljiva.
+\end{lema}
+
+
+\noindent Dokažimo sedaj trditev \ref{formule}. \newline
+\smallskip
+
+\noindent {\em Dokaz \ref{formule}:\/}
+\begin{enumerate}
+    \item[a)] Od prej vemo, da se nam bo v algoritmu, ki ga začnemo s poljubno začetno porazdelitvijo, neka porazdelitev $b_{1},b_{2},\ldots,b_{r}$ ponovila, saj je število različnih porazdelitev končno. Začnimo sedaj algoritem znova, le da je tokrat začetna porazdelitev enaka $b_{1},b_{2},\ldots,b_{r}$. Ker sta začetni in končni porazdelitvi enaki, mora za vsako stanje veljati, da je število žetonov, ki so vanj prispeli, enako številu žetonov, ki so stanje zapustili. Zato je 
+$$w_{uu} = v_{u} + \sum_{k} w_{uk}p_{ku},$$ saj je število žetonov, ki so prispeli v začetno vozlišče $u$ enako številu žetonov, ki smo ga tekom algoritma dodali, torej $v_{u}$, zraven moramo pa dodati še žetone, ki so tekom algoritma vanj prispeli iz stanj, torej za vsak $k$ prištejemo produkt $w_{uk}$, števila izstreljenih žetonov iz $k$, in $p_{ku}$, ki predstavlja delež žetonov, ki pri vsaki izstrelitvi stanja $k$ gredo v $u$. 
+Podobno premislimo, da velja
+$$w_{ui} = \sum_{k} w_{uk}p_{ki}, \;i\neq u.$$
+Naj bo $\overline{w}_{uj} = \frac{w_{uj}}{v_{u}}$. Potem je 
+\[
+    \begin{split}
+        \overline{w}_{uu} &= 1 + \sum_{k} \overline{w}_{uk}p_{ku} \\
+        \overline{w}_{ui} &= \sum_{k} \overline{w}_{uk}p_{ki}, \; i \neq u
+    \end{split}
+\]
+
+\noindent Če to naredimo za vse izbire začetnega stanja $u$ dobimo matrično enačbo
+$$\overline{W} = I + \overline{W}Q$$
+oziroma
+$$\overline{W} = (I - Q)^{-1} = N.$$
+Preveriti moramo še, da je matrika $(I-Q)$ obrnljiva. Pokažimo, da za spektralni radij matrike $Q$ velja $\rho(Q) < 1$. Spomnimo se, da element $p_{ij}$ v matriki $Q^n$ predstavlja verjetnost prehoda iz stanja $i$ v stanje $j$ v $n$ korakih. Ker so v matriki $Q$ le minljiva stanja, po lemi \ref{markovske} sledi, da gre $Q^n \rightarrow 0$, ko pošljemo $n\rightarrow \infty$. Naj bo $\lambda$ lastna vrednost matrike $Q$ in $z$ njen pripadajoč lastni vektor. 
+Spomnimo se, da je tudi $\widetilde{v} = \frac{v}{\left\lVert v\right\rVert }$ lastni vektor za lastno vrednost $\lambda$ in da je $\left\lVert \widetilde{v}\right\rVert = 1$. Potem iz $Q\widetilde{v} = \lambda\widetilde{v}$ oziroma $Q^n\widetilde{v} = \lambda^n\widetilde{v}$ sledi
+\[
+    \left\lVert Q^n\widetilde{v} \right\rVert = \left\lVert \lambda^n\widetilde{v}\right\rVert = \left\lvert \lambda^n\right\rvert\cdot \left\lVert \widetilde{v}\right\rVert = \left\lvert \lambda^n\right\rvert = \left\lvert \lambda\right\rvert^n 
+\]
+Po drugi strani vemo, da je $\left\lVert Q^n\widetilde{v} \right\rVert\leq \left\lVert Q^n \right\rVert \cdot \left\lVert \widetilde{v} \right\rVert = \left\lVert Q^n \right\rVert$
+Torej velja
+$$ \left\lVert Q^n \right\rVert \geq \left\lvert \lambda\right\rvert^n$$
+Ker vemo, da gre $Q^n \rightarrow 0$, ko gre $n \rightarrow \infty$, gre torej leva stran zadnje neenačbe proti 0 in zato mora iti tudi $\left\lvert \lambda \right\rvert^n \rightarrow 0$. To pa se bo zgodilo natanko tedaj, ko bo $\left\lvert \lambda \right\rvert < 1$. Ker je bila $\lambda$ poljubna lastna vrednost, mora to veljati tudi za spektralni radij $\rho(Q)$ in po lemi \ref{matrike} je potem matrika $(I-Q)$ obrnljiva.
+
+\item[b)] Za absorbirajoče stanje $j$ velja
+$$v_{uj} = \sum_{k} w_{uk}p_{kj},$$
+saj je število žetonov, ki prispejo v $j$ enako vsoti produktov med $w_{uk}$, številom izstreljenih žetonov iz stanja $k$, in $p_{kj}$, deležem žetonov, ki gredo pri izstrelitvi stanja $k$ v stanje $j$. \newline
+Naj bo $\overline{v}_{uj} = \frac{v_{uj}}{v_{u}}$. Potem je
+$$ \overline{v}_{uj} = \sum_{k} \overline{w}_{uk}p_{kj}.$$
+Če to naredimo za vse izbire začetnega stanja $u$, dobimo matrično enačbo
+$$\overline{V} = \overline{W}R,$$
+kjer množimo z matriko $R$, saj gledamo verjetnosti prehodov iz minljivih v absorbirajoča stanja.
+Ker pa je $\overline{W} = N$, dobimo 
+$$\overline{V} = NR = B $$
+Zadnja enakost velja, ker je $b_{ij} = \sum_{k\in I} n_{ik}p_{kj}$ za $i,k \in I$, $j$ absorbirajoče.
+
+\hfill \QED
+\end{enumerate}
 
 
 
