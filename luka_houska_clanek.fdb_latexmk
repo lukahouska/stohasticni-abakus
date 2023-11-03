@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1699022761 "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" "luka_houska_clanek.pdf" "luka_houska_clanek" 1699022763 0
+["pdflatex"] 1699023320 "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" "luka_houska_clanek.pdf" "luka_houska_clanek" 1699023322 2
   "C:/Users/Luka/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1698158973 82863 fc06390459ad37febe7d55553c8cd620 ""
   "C:/Users/Luka/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1698159077 24151861 2bef01845ce9f4ce5615a5c669f61c62 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -117,9 +117,9 @@
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/tex/latex/units/units.sty" 1469025550 2206 65ad9fb19763b1681bea4cb389fe84f8 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Luka/AppData/Local/Programs/MiKTeX/tex/xelatex/xetexconfig/crop.cfg" 1169250894 305 57c5d049d73b46b49f97b41eaa29558b ""
-  "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" 1699022759 15446 42efd261cef402230328079c99aab7b8 ""
-  "luka_houska_clanek.aux" 1699022763 715 dc7810cb6b3bd52ed29c5fbebaf51da7 "pdflatex"
-  "luka_houska_clanek.tex" 1699022759 15446 42efd261cef402230328079c99aab7b8 ""
+  "c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex" 1699023313 15448 74eea7d5e7a5675febee8a8d4f91b502 ""
+  "luka_houska_clanek.aux" 1699023321 715 dc7810cb6b3bd52ed29c5fbebaf51da7 "pdflatex"
+  "luka_houska_clanek.tex" 1699023313 15448 74eea7d5e7a5675febee8a8d4f91b502 ""
   "matrika.sty" 1698086162 8841 b054e2b9565078f4935adde2c2a4f09d ""
   "oznake.sty" 1698086162 3496 f566e40d6205a1186536cae28fc501af ""
   "pisave.sty" 1698086162 2130 5abd30053f800ea1676722ededf4b821 ""

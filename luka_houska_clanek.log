@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.10.24)  3 NOV 2023 15:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.10.24)  3 NOV 2023 15:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -385,34 +385,63 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
  (C:\Users\Luka\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+c:/Users/Luka/OneDrive/Dokumenti/stohasticni-abakus/luka_houska_clanek.tex:37: Undefined control sequence.
+l.37 ...li enako kot stopnja $v$, potem lahko \emh
+                                                  {izstrelimo} $v$ tako, da ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 49.
- (C:\Users\Luka\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
+(C:\Users\Luka\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 ) [1{C:/Users/Luka/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 {C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 Underfull \vbox (badness 5133) has occurred while \output is active []
 
- [2] [3]
+ [2]
+
+LaTeX Warning: Reference `formule' on page 3 undefined on input line 93.
+
+
+LaTeX Warning: Reference `formule' on page 3 undefined on input line 96.
+
+[3]
+
+LaTeX Warning: Reference `markovske' on page 4 undefined on input line 114.
+
+
+LaTeX Warning: Reference `matrike' on page 4 undefined on input line 122.
+
 \tf@thm=\write3
 \openout3 = `luka_houska_clanek.thm'.
 
- [4] (luka_houska_clanek.aux)
+[4] (luka_houska_clanek.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-10>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 8123 strings out of 474836
- 135175 string characters out of 5751892
+ 8121 strings out of 474836
+ 135145 string characters out of 5751892
  1938040 words of memory out of 5000000
- 29889 multiletter control sequences out of 15000+600000
+ 29887 multiletter control sequences out of 15000+600000
  588286 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,15n,79p,1399b,394s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Luka/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on luka_houska_clanek.pdf (4 pages, 191703 bytes).
+Output written on luka_houska_clanek.pdf (4 pages, 191728 bytes).
 PDF statistics:
  91 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
