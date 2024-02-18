@@ -118,8 +118,8 @@ Naj bo $\overline{w}_{uj} = \frac{w_{uj}}{v_{u}}$. Potem je
 \noindent Če to naredimo za vse izbire začetnega stanja $u$ dobimo matrično enačbo
 $$\overline{W} = I + \overline{W}Q$$
 oziroma
-$$\overline{W} = (I - Q)^{-1} = N.$$
-Preveriti moramo še, da je matrika $(I-Q)$ obrnljiva. Pokažimo, da za spektralni radij matrike $Q$ velja $\rho(Q) < 1$. Spomnimo se, da element $p_{ij}$ v matriki $Q^n$ predstavlja verjetnost prehoda iz stanja $i$ v stanje $j$ v $n$ korakih. Ker so v matriki $Q$ le minljiva stanja, po lemi \ref{markovske} sledi, da gre $Q^n \rightarrow 0$, ko pošljemo $n\rightarrow \infty$. Naj bo $\lambda$ lastna vrednost matrike $Q$ in $z$ njen pripadajoč lastni vektor. 
+$$\overline{W} = (I - Q)^{-1} = N,$$
+kjer je $N=(n_{uv})_{u,v \in S}$. Preveriti moramo še, da je matrika $(I-Q)$ obrnljiva. Pokažimo, da za spektralni radij matrike $Q$ velja $\rho(Q) < 1$. Spomnimo se, da element $p_{ij}$ v matriki $Q^n$ predstavlja verjetnost prehoda iz stanja $i$ v stanje $j$ v $n$ korakih. Ker so v matriki $Q$ le minljiva stanja, po lemi \ref{markovske} sledi, da gre $Q^n \rightarrow 0$, ko pošljemo $n\rightarrow \infty$. Naj bo $\lambda$ lastna vrednost matrike $Q$ in $z$ njen pripadajoč lastni vektor. 
 Spomnimo se, da je tudi $\widetilde{v} = \frac{v}{\left\lVert v\right\rVert }$ lastni vektor za lastno vrednost $\lambda$ in da je $\left\lVert \widetilde{v}\right\rVert = 1$. Potem iz $Q\widetilde{v} = \lambda\widetilde{v}$ oziroma $Q^n\widetilde{v} = \lambda^n\widetilde{v}$ sledi
 \[
     \left\lVert Q^n\widetilde{v} \right\rVert = \left\lVert \lambda^n\widetilde{v}\right\rVert = \left\lvert \lambda^n\right\rvert\cdot \left\lVert \widetilde{v}\right\rVert = \left\lvert \lambda^n\right\rvert = \left\lvert \lambda\right\rvert^n 
@@ -138,8 +138,8 @@ $$ \overline{v}_{uj} = \sum_{k} \overline{w}_{uk}p_{kj}.$$
 $$\overline{V} = \overline{W}R,$$
 kjer množimo z matriko $R$, saj gledamo verjetnosti prehodov iz minljivih v absorbirajoča stanja.
 Ker pa je $\overline{W} = N$, dobimo 
-$$\overline{V} = NR = B $$
-Zadnja enakost velja, ker je $b_{ij} = \sum_{k\in I} n_{ik}p_{kj}$ za $i,k \in I$, $j$ absorbirajoče.
+$$\overline{V} = NR = B, $$
+kjer je $B = (b_{uv})_{u,v \in S}$. Zadnja enakost velja, ker je $b_{ij} = \sum_{k\in I} n_{ik}p_{kj}$ za $i,k \in I$, $j$ absorbirajoče.
 
 \hfill \QED
 \end{enumerate}
