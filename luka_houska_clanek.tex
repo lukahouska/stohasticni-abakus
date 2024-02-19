@@ -27,16 +27,16 @@
 \klasifikacija{~} 
 \izvlecek{V članku je podrobno predstavljen stohastični abakus, kako algoritem deluje in zakaj deluje. S pomočjo stohastičnega abakusa so analizirane igre "podajanja evra" \,na različnih grafih, kar razkrije naravno povezavo s Fibonaccijevimi števili.}
 \title{Probabilistic abacus}
-\abstract{The article presents stochastic abacus in detail, how the algorithm works, why it works and why it stops. Using the stochastic abacus, pass-the-buck games are analyzed on various graphs, revealing a natural connection with the    Fibonacci numbers.}
+\abstract{The article presents stochastic abacus in detail, how the algorithm works and why it works. Using the stochastic abacus, pass-the-buck games are analyzed on various graphs, revealing a natural connection with the    Fibonacci numbers.}
 
 \glava
 \baselineskip=14.5pt
 
-\smallskip
+\smallskip**/85203,
 
 \section{Uvod}
 Igra "podajanja evra" \,se začne z $n$ igralci postavljenimi kot vozlišča grafa. En igralec ima v roki evro. Igra se igra izmenično, kjer v vsakem koraku igralec, ki v roki drži evro, odvisno od naključja zmaga ali pa poda evro enemu od igralcev na sosednjih vozliščih. Če ima vozlišče trenutnega igralca stopnjo $d$ je vsak od $d + 1$ izidov, torej da zmaga ali poda evro enemu od sosedov, enako verjeten. Pri igri bomo uporabljali koncept "izstreljevanja žetonov" \,(angl. chip firing), katerega je kot sredstvo za poučevanje verjetnosti osnovnošolcem razvil oče stohastičnega abakusa Arthur Engel.
-Osnovna ideja chip firinga je preprosta. Če imamo podan graf, si predstavljamo, da na vozlišča postavimo nekaj žetonov. Če je število žetonov na vozlišču $v$ večje ali enako kot stopnja $v$, potem lahko \emph{izstrelimo} $v$ tako, da do vsakega soseda $v$ po povezavi pošljemo en žeton. Število žetonov v vozlišču $v$ se po izstrelitvi zmanjša za stopnjo $v$, vsakemu od sosednjih vozlišč $v$ pa se število žetonov poveča za ena. 
+Osnovna ideja izstreljevanja žetonov je preprosta. Če imamo podan graf, si predstavljamo, da v vozlišča dodamo nekaj žetonov. Če je število žetonov v vozlišču $v$ večje ali enako kot stopnja $v$, potem lahko \emph{izstrelimo} $v$ tako, da do vsakega soseda $v$ po povezavi pošljemo en žeton. Število žetonov v vozlišču $v$ se po izstrelitvi zmanjša za stopnjo $v$, vsakemu od sosednjih vozlišč $v$ pa se število žetonov poveča za ena. 
 Koncept izstreljevanja žetonov bomo implementirali na \emph{usmerjene grafe}, kjer bo izstrelitev vozlišča $v$ pomenila, da po vsaki izhodni povezavi iz $v$ pošljemo en žeton. Natančneje, usmerjeni graf bo prehodni graf za absorbirajočo Markovsko verigo, ki ustreza igri podajanja evra. Naša naloga je, da natančno predstavimo Engelov originalni koncept, ki uporablja izstreljevanje žetonov kot sredstvo za računanje verjetnosti in pričakovanih vrednosti. Naš prvi korak je spoznati Engelov algoritem.
 
 \section{Stohastični abakus}
@@ -57,10 +57,10 @@ da je na neki točki število žetonov na notranjih vozliščih enako začetnemu
     Če algoritem začnemo s kritično porazdelitvijo žetonov, se bo ta ponovila po končnem številu korakov.
 \end{trditev}
 
-\noindent {\em Dokaz \ref{končnost}:\/} Zapišimo prehodne verjetnosti kot $p_{ij} = \frac{r_{ij}}{r_{i}},\; r_{ij}, r_{i}\in \mathbb{N}$. Potezo, kjer iz vozlišča $i$ izstrelimo $r_{ij}$ žetonov v vozlišče $j$ za vsak $j$, bomo poimenovali poteza \emph{tipa 1}. Potezo, kjer vozlišču $u$ dodamo žeton bomo poimenovali poteza \emph{tipa 2}. Izberimo še neko minljivo stanje $u$, ki bo naše začetno vozlišče. Začnimo z neko začetno porazdelitvijo žetonov, ki je manjša ali enaka kot kritična, torej vsakemu vozlišču dodamo manj ali enako žetonov kot bi jih imel v kritični porazdelitvi. Nadaljujemo z algoritmom dokler se neka porazdelitev žetonov $b_{1},b_{2},\ldots,b_{r}$ ne ponovi. Takšna porazdelitev zagotovo obstaja, saj imamo lahko le končno mnogo različnih porazdelitev. Vzemimo to porazdelitev $b_{1},b_{2},\ldots,b_{r}$ za začetno. Lahko predpostavimo, da je $b_{i}<r_{i}$ za $i \neq u$ in $b_{u} = r_{u}$. Izberimo za to porazdelitev zelene žetone. Nato dodajmo rdeče žetone, da razporeditev dopolnimo do kritične. Nato nadaljujemo z enakim zaporedjem potez, vendar uporabljamo samo zelene žetone. Ko se bo naša začetna porazdelitev ponovila, bomo spet imeli kritično razporeditev, saj se rdečih žetonov nismo dotaknili. Poimenujmo ta modificiran postopek \emph{metoda A}. Poimenovali smo ga modificiran, saj nismo upoštevali Engelovih pravil o začetni porazdelitvi žetonov. 
-Predpostavimo, da smo v metodi A v vozlišče $u$ dodali $m$ žetonov. Poglejmo zdaj še drugo metodo, ki jo bomo poimenovali \emph{metoda B}. V metodi B bomo začeli s kritično porazdelitvijo žetonov in izvajali algoritem dokler ne dodamo $m$ žetonov in ne moremo narediti več nobene poteze prvega tipa. Pokazali bomo, da obe metodi pripeljeta do enake končne razporeditve. Ker vemo, da je končna razporeditev v metodi A kritična, bo enako veljalo tudi za metodo B. \newline
+\noindent {\em Dokaz \ref{končnost}:\/} Zapišimo prehodne verjetnosti kot $p_{ij} = \frac{r_{ij}}{r_{i}},\; r_{ij}, r_{i}\in \mathbb{N}$. Potezo, kjer iz vozlišča $i$ izstrelimo $r_{ij}$ žetonov v vozlišče $j$ za vsak $j$, bomo poimenovali poteza \emph{tipa 1}. Potezo, kjer vozlišču $u$ dodamo žeton bomo poimenovali poteza \emph{tipa 2}. Izberimo še neko minljivo stanje $u$, ki bo naše začetno vozlišče. Začnimo z neko začetno porazdelitvijo žetonov, ki je manjša ali enaka kot kritična, torej vsakemu vozlišču dodamo manj ali enako žetonov kot bi jih imel v kritični porazdelitvi. Nadaljujemo z algoritmom dokler se neka porazdelitev žetonov $b_{1},b_{2},\ldots,b_{r}$ ne ponovi. Takšna porazdelitev zagotovo obstaja, saj imamo lahko le končno mnogo različnih porazdelitev. Vzemimo to porazdelitev $b_{1},b_{2},\ldots,b_{r}$ za začetno. Lahko predpostavimo, da je $b_{i}<r_{i}$ za $i \neq u$ in $b_{u} = r_{u}$. Izberimo za to porazdelitev zelene žetone. Nato dodajmo rdeče žetone, da razporeditev dopolnimo do kritične. Nato nadaljujemo z enakim zaporedjem potez, vendar uporabljamo samo zelene žetone. Ko se bo naša začetna porazdelitev ponovila, bomo spet imeli kritično razporeditev, saj se rdečih žetonov nismo dotaknili. Poimenujmo ta modificiran postopek \emph{metoda A}. 
+Predpostavimo, da smo v metodi A v vozlišče $u$ dodali $m$ žetonov. Poglejmo zdaj še drugo metodo, ki jo bomo poimenovali \emph{metoda B}. V metodi B bomo začeli s kritično porazdelitvijo žetonov in izvajali algoritem dokler ne dodamo $m$ žetonov in ne moremo narediti več nobene poteze tipa 1. Pokazali bomo, da obe metodi pripeljeta do enake končne porazdelitve žetonov. Ker vemo, da je končna porazdelitev v metodi A kritična, bo enako veljalo tudi za metodo B. \newline
 \indent Naj bo $e_{1},e_{2},\ldots,e_{n}$ zaporedje potez, ki smo jih naredili v metodi A in naj bo $f_{1},f_{2},\ldots,f_{v}$ zaporedje potez v metodi B. Potezi $e_{1}$ in $f_{1}$ sta enaki, saj v obeh primerih izstrelimo $r_{u}$ žetonov iz vozlišča $u$. Z indukcijo bomo dokazali, da se vse poteze $e_{i}, i \in [n] $ pojavijo nekje v zaporedju $\{ f_{j}\} _{j\in [v] }$. Predpostavimo, da smo za poteze $e_{1},e_{2},\ldots,e_{k}$ našli enake poteze $f_{i_1},f_{i_2},\ldots,f_{i_k}$. Poglejmo potezo $e_{k+1}$. Če je to poteza tipa 2, mora obstajati enaka poteza $f_{i_{k+1}}$, saj v obeh metodah naredimo $m$ takšnih potez.
-Predpostavimo sedaj, da je $e_{k+1}$ poteza tipa 1, recimo, da izstrelimo $r_{t}$ žetonov iz vozlišča $t$. Če obstaja taka poteza $f_{i_{k+1}}$, torej, da izstrelimo $r_{t}$ žetonov iz vozlišča $t$, ki se pojavi poleg $f_{i_1},f_{i_2},\ldots,f_{i_k}$ in preden se vse te izvedejo, potem lahko to potezo izberemo kot "ujemajočo se" \,s $e_{k+1}$. Predpostavimo sedaj, da take poteze ni. Poteza $e_{k+1}$ je bila omogočena z zaporedjem potez $e_{1},e_{2},\ldots,e_{k}$. Torej more biti omogočena tudi z zaporedjem potez $f_{i_1},f_{i_2},\ldots,f_{i_k}$, saj smo v obeh metodah začeli z enako porazdelitvijo žetonov in naredili enake poteze. Druge poteze, ki bi se lahko zgodile medtem ko se izvajajo te poteze, lahko kvečjemu povišajo število žetonov v stanju $t$. 
+Predpostavimo sedaj, da je $e_{k+1}$ poteza tipa 1, recimo, da izstrelimo $r_{t}$ žetonov iz vozlišča $t$. Če obstaja taka poteza $f_{i_{k+1}}$, torej, da izstrelimo $r_{t}$ žetonov iz vozlišča $t$, ki se pojavi poleg $f_{i_1},f_{i_2},\ldots,f_{i_k}$ in preden se vse te izvedejo, potem lahko to potezo izberemo kot "ujemajočo se" \,z $e_{k+1}$. Predpostavimo sedaj, da take poteze ni. Poteza $e_{k+1}$ je bila omogočena z zaporedjem potez $e_{1},e_{2},\ldots,e_{k}$. Torej more biti omogočena tudi z zaporedjem potez $f_{i_1},f_{i_2},\ldots,f_{i_k}$, saj smo v obeh metodah začeli z enako porazdelitvijo žetonov in naredili enake poteze. Druge poteze, ki bi se lahko zgodile medtem ko se izvajajo te poteze, lahko kvečjemu povišajo število žetonov v stanju $t$. 
 Zato ponovno, imamo potezo, ki jo lahko enačimo z $e_{k+1}$ in indukcijski korak je dokazan. Analogno dokažemo, da so vsi $f_{j}, j \in [v] $ vsebovani v $\{e_{i} \}_{i\in [n] }$. Zato sta ti dve množici potez enaki, kar implicira, da metodi A in B vodita do enake končne porazdelitve, kar smo hoteli dokazati.
 \hfill \QED
 
@@ -79,14 +79,14 @@ Algoritem vrne dva pomembna rezultata, $n_{uj}$, pričakovano število obiskov s
 
 
 \noindent
-Preden začnemo z dokazom vpeljimo še nekaj oznak. $S = \{1,2,\ldots,n\}$ naj bo množica stanj in $I = \{1,2,\ldots,r\}$ naj bo množica minljivih stanj. $P = (p_{ij})_{i,j=[n]}$ naj bo prehodna matrika markovske verige. Prehodno matriko lahko zapišemo kot 
+Preden začnemo z dokazom vpeljimo še nekaj oznak. $S = \{1,2,\ldots,n\}$ naj bo množica stanj in \\ $M = \{1,2,\ldots,r\}$ naj bo množica minljivih stanj. $P = (p_{ij})_{i,j=[n]}$ naj bo prehodna matrika markovske verige. Prehodno matriko lahko zapišemo kot 
 $ P =
 \begin{bmatrix} 
     Q & R \\
     0 & I 
 \end{bmatrix}
 $
-    , kjer $Q$ predstavlja prehodne verjetnosti le med minljivimi stanji, $R$ predstavlja prehodne verjetnosti iz minljivih stanj v absorbirajoča, $I$ pa je identična matrika, saj veriga ostane v absorbirajočih stanjih. Z $N = (I-Q)^{-1}$ označimo fundamentalno matriko markovske verige, njeni elementi $n_{ij}$  pa predstavljajo pričakovano število obiskov stanja $j\in S$, če začnemo v stanju $i\in I$. V dokazu točke a) bomo potrebovali še sledeči lemi.  
+    , kjer $Q$ predstavlja prehodne verjetnosti le med minljivimi stanji, $R$ predstavlja prehodne verjetnosti iz minljivih stanj v absorbirajoča, $I$ pa je identična matrika, saj veriga ostane v absorbirajočih stanjih. Z $N = (I-Q)^{-1}$ označimo fundamentalno matriko markovske verige, njeni elementi $n_{ij}$  pa predstavljajo pričakovano število obiskov stanja $j\in S$, če začnemo v stanju $i\in M$. V dokazu točke a) bomo potrebovali še sledeči lemi.  
 \smallskip
 
 \begin{lema}\label{markovske}
@@ -104,7 +104,7 @@ $
 \noindent {\em Dokaz \ref{formule}:\/}
 \begin{enumerate}
     \item[a)] Od prej vemo, da se nam bo v algoritmu, ki ga začnemo s poljubno začetno porazdelitvijo, neka porazdelitev $b_{1},b_{2},\ldots,b_{r}$ ponovila, saj je število različnih porazdelitev končno. Znova poženimo algoritem, le da je tokrat začetna porazdelitev enaka $b_{1},b_{2},\ldots,b_{r}$. Ker sta začetni in končni porazdelitvi enaki, mora za vsako stanje veljati, da je število žetonov, ki so vanj prispeli, enako številu žetonov, ki so stanje zapustili. Zato je 
-$$w_{uu} = v_{u} + \sum_{k} w_{uk}p_{ku},$$ saj je število žetonov, ki so prispeli v začetno vozlišče $u$ enako številu žetonov, ki smo ga tekom algoritma dodali, torej $v_{u}$, zraven moramo pa dodati še žetone, ki so tekom algoritma vanj prispeli iz stanj, torej za vsak $k$ prištejemo produkt $w_{uk}$, števila izstreljenih žetonov iz $k$, in $p_{ku}$, ki predstavlja delež žetonov, ki pri vsaki izstrelitvi stanja $k$ gredo v $u$. 
+$$w_{uu} = v_{u} + \sum_{k} w_{uk}p_{ku},$$ saj je število žetonov, ki so prispeli v začetno vozlišče $u$ enako številu žetonov, ki smo ga tekom algoritma dodali, torej $v_{u}$, zraven moramo pa dodati še žetone, ki so tekom algoritma vanj prispeli iz preostalih stanj, torej za vsak $k$ prištejemo produkt $w_{uk}$, števila izstreljenih žetonov iz $k$, in $p_{ku}$, ki predstavlja delež žetonov, ki pri vsaki izstrelitvi stanja $k$ gredo v $u$. 
 Podobno premislimo, da velja
 $$w_{ui} = \sum_{k} w_{uk}p_{ki}, \;i\neq u.$$
 Naj bo $\overline{w}_{uj} = \frac{w_{uj}}{v_{u}}$. Potem je 
@@ -139,7 +139,7 @@ $$\overline{V} = \overline{W}R,$$
 kjer množimo z matriko $R$, saj gledamo verjetnosti prehodov iz minljivih v absorbirajoča stanja.
 Ker pa je $\overline{W} = N$, dobimo 
 $$\overline{V} = NR = B, $$
-kjer je $B = (b_{uv})_{u,v \in S}$. Zadnja enakost velja, ker je $b_{ij} = \sum_{k\in I} n_{ik}p_{kj}$ za $i,k \in I$, $j$ absorbirajoče.
+kjer je $B = (b_{uv})_{u,v \in S}$. Zadnja enakost velja, ker je $b_{ij} = \sum_{k\in M} n_{ik}p_{kj}$ za $i,k \in M$, $j$ absorbirajoče.
 
 \hfill \QED
 \end{enumerate}
@@ -262,7 +262,7 @@ pojavljajo in jih bomo omenili v nadaljevanju, na ta način bolj jasno razvidne.
 
 \section{Graf poti na $n$ točkah}
 
-Postavitve igralcev v igri podajanja evra so lahko zelo različne, za začetek pa se bomo v osnovi osredotočili na igro, kjer igralci stojijo v ravni vrsti. Primer je zanimiv zaradi povezave med verjetnostjo zmage posameznika in Fibonaccijevimi števili. 
+Postavitve igralcev v igri podajanja evra so lahko zelo različne, za začetek pa se bomo osredotočili na igro, kjer igralci stojijo v ravni vrsti. Primer je zanimiv zaradi povezave med verjetnostjo zmage posameznika in Fibonaccijevimi števili. 
 Opazovali bomo dogajanje med izvajanjem Engelovega algoritma na grafu sosednosti $P_n$, kjer začetni igralec stoji najbolj levo oz. najbolj desno v vrsti. Stohastični abakus se na
 grafu takšne oblike izvede na digrafu $B(P_{n})$, ki je na sliki \ref{fig:M2} prikazan za pot s petimi vozlišči. Digraf je prikazan v začetnem stanju s kritično porazdelitvijo žetonov in v stanju po končanem algoritmu z ustreznim številom žetonov v končnih vozliščih.
 
@@ -380,11 +380,11 @@ Tudi tokrat rezultat dokazujemo z indukcijo.
     % Ko dodamo žeton na edino vozlišče, ki je v kritičnem stanju prazno, se to sproži in pošlje žeton v terminalno vozlišče, pri tem pa samo ostane v kritično polnem stanju. Tako je število žetonov v kritičnem vozlišču po izvedenem Englovem algoritmu enako $1=f_1$.
     \item [] \textbf{Indukcijski korak:} Predpostavimo, da je število žetonov v končnih vozliščih po izvedenem algoritmu na 
     digrafu $B(P_{n})$ res enako $f_{2k-1}$ za vsako notranje vozlišče z indeksom $1\le k\le n$. 
-    Sedaj opazujemo algoritem na diagrafu $B(P_{n+1})$, kjer je začetno vozlišče indeksirano z $n+1$. Sestavili bomo strategijo, 
+    Sedaj opazujemo algoritem na digrafu $B(P_{n+1})$, kjer je začetno vozlišče indeksirano z $n+1$. Sestavili bomo strategijo, 
     ki bo zaključila Engelov algoritem na omenjenem digrafu. Ob začetku je torej sistem v kritični razporeditvi.
-    V začetno vozlišče z indeksom $n+1$ položimo $2\cdot f_{2n}$ žetonov, pri čemer se to vozlišče sproži $f_{2n}$-krat in 
-    po koncu ostane v kritičnem stanju. Pri tem se $f_{2n}$ žetonov pomakne v vozlišče z indeksom $n$ in $f_{2n}$ žetonov v terminalno vozlišče začetnega vozlišča.
-    Sedaj opazujemo dogajanje, ki ga sproži $f_{2n}$ novih žetonov na vozlišču $n$. Po predpostavki vemo, da bi za izvedbo Engelovega algoritma na $B(P_{n})$ potrebovali $f_{2n}$ žetonov, pri čemer bi vozlišče $n$ izstrelili $f_{2n-1}$-krat. 
+    V začetno vozlišče z indeksom $n+1$ položimo $2\cdot f_{2n}$ žetonov, pri čemer to vozlišče izstrelimo $f_{2n}$-krat in 
+    po koncu ostane v kritičnem stanju. Pri tem se $f_{2n}$ žetonov pomakne v vozlišče z indeksom $n$ in $f_{2n}$ žetonov v končno vozlišče začetnega vozlišča.
+    Sedaj opazujemo dogajanje, ki ga sproži $f_{2n}$ novih žetonov v vozlišču $n$. Po predpostavki vemo, da bi za izvedbo Engelovega algoritma na $B(P_{n})$ potrebovali $f_{2n}$ žetonov, pri čemer bi vozlišče $n$ izstrelili $f_{2n-1}$-krat. 
     Ko prvi žeton prispe v vozlišče $n$, to izstrelimo in pošljemo po en žeton v končno vozlišče, vozlišče z indeksom $n-1$ in vozlišče z indeksom $n+1$. Vozlišče $n+1$ po dodanem žetonu izstrelimo, s čimer se en žeton spet vrne v vozlišče $n$.
     V vozlišče $n+1$ po koncu dodamo še en žeton, da ga pustimo v kritični razporeditvi. Torej vsakič, ko bomo izstrelili vozlišče $n$, bomo v sistem dodali še en dodaten žeton, pri tem pa se bo povečalo tudi število žetonov v končnem vozlišču začetnega vozlišča.
     Zanima nas torej, kolikokrat bomo vozlišče $n$ izstrelili. Če bi bilo krajišče robno, bi iz predpostavke vedeli, da ga bomo izstrelili natanko $f_{2n-1}$-krat. Ob dodanem vozlišču na desni strani se poveča število sosedov za ena, torej ima v kritični razporeditvi en žeton več kot prej.
@@ -404,7 +404,7 @@ Tudi tokrat rezultat dokazujemo z indukcijo.
 Igra podajanja evra v zgoraj opisani situaciji torej porodi povezavo z lihimi členi Fibonaccijevega zaporedja. Iz izreka je razvidno, da je verjetnost zmage začetnega igralca enaka $\frac{f_{2n-1}}{f_{2n}}$, torej gre za razmerje dveh zaporednih Fibonaccijevih števil. Če bomo število igralcev povečevali čez vse meje,
 bo tako verjetnost zmage začetnega igralca enaka $\frac{1}{\phi}$, kjer je $\phi$ razmerje zlatega reza.
 
-Pričakovano število potez v igri je, kot smo že prej razmislili, enako $\frac{m}{c}$. Pri izvedbi Engelovega algoritma smo na začetno vozlišče dodali $f_{2n}$ novih žetonov, torej je $c=f_{2n}$, seštevek vseh premikov žetonov pa je za $n \ge 3$ enak
+Pričakovano število potez v igri je, kot smo že prej razmislili, enako $\frac{m}{c}$. Pri izvedbi Engelovega algoritma smo v začetno vozlišče dodali $f_{2n}$ novih žetonov, torej je $c=f_{2n}$, seštevek vseh premikov žetonov pa je za $n \ge 3$ enak
 \begin{align*}
     m &= 2f_1+3(f_3+f_5+\ldots+f_{2n-3}) + 2f_{2n-1} \\
     &=2\sum_{i=1}^{n}f_{2i-1} + \sum_{i=2}^{n-1}f_{2i-1} \\
@@ -443,11 +443,11 @@ igram pravimo \emph{randomizirane} igre podajanja evra. Opazovali bomo poljubno 
 Da bomo lahko na randomizirani igri z grafom sosednosti $G$ uporabili pristop s stohastičnim abakusom, moramo igro modelirati z ustreznim digrafom, ki ga bomo označevali z $D(G)$.
 Digraf konstruiramo tako, da iz prvotnega grafa najprej na enak način kot prej izpeljemo digraf $B(G)$ in nato dodamo dodatno vozlišče iz katerega gredo usmerjene povezave do vsakega izmed notranjih vozlišč. 
 S tem predstavimo faktor naključne izbire prvega igralca, saj gre do vsakega vozlišča točno ena povezava, kar odraža dejstvo, da ob $n$ 
-igralcih vsak začne z enako verjetnostjo $\frac{1}{n}$. Novo vozilišče je tudi začetno vozlišče, torej vanj dodajamo nove žetone ob izvajanju Engelovega algoritma.
+igralcih vsak začne z enako verjetnostjo $\frac{1}{n}$. Novo vozlišče je tudi začetno vozlišče, torej vanj dodajamo nove žetone ob izvajanju Engelovega algoritma.
 
-Smiselno vprašanje, ki si ga igralec ob začetku katere koli igre podajanja evra postavi je, kateri položaj v formaciji mu bo z največjo verjetnosto prinesla dobiček. V primeru poti je bilo glede na dokazani izrek bolje, da zavzame pozicijo čim bližje začetnemu igralcu.
+Smiselno vprašanje, ki si ga igralec ob začetku katere koli igre podajanja evra postavi je, kateri položaj v formaciji mu bo z največjo verjetnostjo prinesla dobiček. V primeru poti je bilo glede na dokazani izrek bolje, da zavzame pozicijo čim bližje začetnemu igralcu.
 V randomizirani igri pa je situacija drugačna. Poglejmo si enak primer kot prej, torej pot na petih vozliščih, kjer je izbira začetnega igralca naključna. Digraf je na začetku v kritični razporeditvi.
-Ko izstrelimo začetno vozlišče, takoj zatem izstrelimo tudi vsa notranja vozlišča. Pri tem se število žetonov v končnih vozliščih poveča na 1, notranja vozlišča pa so spet v kritični razporeditvi. Na začetno vozlišče položimo 5 novih žetonov, s čimer je Engelov algoritem zaključen (glej \ref{fig:M3}).
+Ko izstrelimo začetno vozlišče, takoj zatem izstrelimo tudi vsa notranja vozlišča. Pri tem se število žetonov v končnih vozliščih poveča na 1, notranja vozlišča pa so spet v kritični razporeditvi. Na začetno vozlišče položimo 5 novih žetonov, s čimer je Engelov algoritem zaključen (glej sliko \ref{fig:M3}).
 Torej je izbira pozicije v igri nepomembna, saj ima vsak igralec enake možnosti za zmago. Tudi algoritem je v tem primeru veliko hitrejši, saj je potrebno dodati le pet novih žetonov, pri čemer jih je bilo prej potrebno dodati $47$. Izkaže se, da ugotovitev velja za poljuben graf sosednosti $G$.
 
 
@@ -557,7 +557,7 @@ Torej je izbira pozicije v igri nepomembna, saj ima vsak igralec enake možnosti
 
 
 \begin{izrek}
-    Rabdomizirana igra podajanja evra je poštena za vse grafe sosednosti $G$. To pomeni, da ima v igri z $n$ igralci, ne glede na postavitev, vsak sodelujoči enako verjetnost za zmago.
+    Randomizirana igra podajanja evra je poštena za vse grafe sosednosti $G$. To pomeni, da ima v igri z $n$ igralci, ne glede na postavitev, vsak igralec enako verjetnost za zmago.
 \end{izrek}
 
 \begin{dokaz}
@@ -585,7 +585,7 @@ Ob tem se na grafu zgodi $n$ premikov, ko se po en žeton premakne v ustrezno ko
 
 \begin{thebibliography}{99}
 
-\bibitem{7} Bruce Torrence, \emph{Passing the Buck and Firing Fibonacci: Adventures with the Stochastic Abacus}, The American Mathematical Monthly , MAY 2019, Vol. 126, No. 5 (MAY 2019), pp.387-399.
+\bibitem{7} Bruce Torrence, \emph{Passing the Buck and Firing Fibonacci: Adventures with the Stochastic Abacus}, The American Mathematical Monthly , MAY 2019, Vol. 126, No. 5 (MAY 2019), pp. 387-399.
 \bibitem{6} J. Laurie Snell, \emph{The Engel algorithm for absorbing Markov chains}, [Dostopano dne 16. 2. 2024], Spletna stran: https://math.dartmouth.edu/~doyle/docs/engel/engel.pdf. 
 \bibitem{3} Arthur Engel, \emph{Why Does the Probabilistic Abacus Work?},  Educational Studies in Mathematics, Vol. 7, No. 1/2 (Jul., 1976), pp. 59-69. 
 
