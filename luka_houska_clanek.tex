@@ -149,8 +149,8 @@ kjer je $B = (b_{uv})_{u,v \in S}$. Zadnja enakost velja, ker je $b_{ij} = \sum_
 \section{Igra podajanja evra}
 V nadaljevanju se bomo osredotočili na uporabo Engelovega algoritma v igri podajanja evra. V igri opazujemo $n$ 
 igralcev, ki si podajajo evro. Razporejeni so v neko formacijo, pri čemer ima vsak od sodelujočih nenegativno število sosedov. Igra poteka izmenično. 
-Ko je igralec na potezi, lahko evro zadrži in s tem igro zaključi, ali pa ga poda kateremkoli od svojih sosedov, ki postopek nadaljuje. Pri tem velja, da je njegova odločitev naključna in jo lahko predstavimo kot enakomerno diskretno porazdeljeno slučajno spremenljivko. To pomeni, da trenutni imetnik evra z $d$ sosedi evro poda naprej vsakemu od sosedov
-z verjetnosto $\frac{1}{d+1}$, zadrži pa ga prav tako z verjetnosto $\frac{1}{d+1}$. Igra se igra, dokler eden od igralcev evra ne osvoji. Zanima nas, kakšna je verjetnost zmage posameznika in kako dolgo igra traja.
+Ko je igralec na potezi, lahko evro zadrži in s tem igro zaključi, ali pa ga poda kateremukoli od svojih sosedov, ki postopek nadaljuje. Pri tem velja, da je njegova odločitev naključna in jo lahko predstavimo kot enakomerno diskretno porazdeljeno slučajno spremenljivko. To pomeni, da trenutni imetnik evra z $d$ sosedi evro poda naprej vsakemu od sosedov
+z verjetnostjo $\frac{1}{d+1}$, zadrži pa ga prav tako z verjetnosto $\frac{1}{d+1}$. Igra se igra, dokler eden od igralcev evra ne osvoji. Zanima nas, kakšna je verjetnost zmage posameznika in kako dolgo igra traja.
 
 Problema se bomo lotili s pomočjo stohastičnega abakusa, pri čemer je potrebno igro prevesti na ustrezen usmerjen graf opisan v prejšnjem poglavju. Igro podajanja evra v splošnem modeliramo z neusmerjenim grafom brez zank, pri čemer množica vozlišč $V$ predstavlja igralce, množica povezav $E$ pa odraža odnose sosednosti med njimi.
 To pomeni, da ima vozlišče na grafu stopnjo $d$, kadar ima igralec, ki ga vozlišče predstavlja, $d$ sosedov. Takšen graf bomo imenovali graf sosednosti in ga označevali z $G$. 
