@@ -57,11 +57,11 @@ da je na neki točki število žetonov na notranjih vozliščih enako začetnemu
     Če algoritem začnemo s kritično razporeditvijo žetonov, se bo ta ponovila po končnem številu korakov.
 \end{trditev}
 
-\noindent {\em Dokaz:\/} Zapišimo prehodne verjetnosti kot $p_{ij} = \frac{r_{ij}}{r_{i}},\; r_{ij}, r_{i}\in \mathbb{N}$. Potezo, kjer iz vozlišča $i$ izstrelimo $r_{ij}$ žetonov v vozlišče $j$ za vsak $j$, bomo poimenovali poteza \emph{tipa 1}. Potezo, kjer vozlišču $u$ dodamo žeton, bomo poimenovali poteza \emph{tipa 2}. Izberimo še neko minljivo stanje $u$, ki bo naše začetno vozlišče. Začnimo z neko začetno razporeditvijo žetonov, ki je manjša ali enaka kot kritična, torej vsakemu vozlišču dodamo manj ali enako žetonov kot bi jih imel v kritični razporeditvi. Nadaljujemo z algoritmom, dokler se neka razporeditev žetonov na notranjih vozliščih $b_{1},b_{2},\ldots,b_{r}$ ne ponovi. Takšna zaporeditev zagotovo obstaja, saj imamo končno število vozlišč, število žetonov na notranjih vozliščih ob istem času pa je navzgor omejeno z vsoto vseh izstopnih stopenj, torej imamo omejeno število različnih razporeditev žetonov na notranjih vozliščih. Vzemimo to razporeditev $b_{1},b_{2},\ldots,b_{r}$ za začetno. Lahko predpostavimo, da je $b_{i}<r_{i}$ za $i \neq u$ in $b_{u} = r_{u}$. Izberimo za to razporeditev zelene žetone. Nato dodajmo rdeče žetone, da razporeditev dopolnimo do kritične. Nato nadaljujemo z enakim zaporedjem potez, vendar uporabljamo samo zelene žetone. Ko se bo naša začetna razporeditev ponovila, bomo spet imeli kritično razporeditev, saj se rdečih žetonov nismo dotaknili. Poimenujmo ta modificiran postopek \emph{metoda A}. 
+\noindent {\em Dokaz:\/} Zapišimo prehodne verjetnosti kot $p_{ij} = \frac{r_{ij}}{r_{i}},\; r_{ij}, r_{i}\in \mathbb{N}$. Potezo, kjer iz vozlišča $i$ izstrelimo $r_{ij}$ žetonov v vozlišče $j$ za vsak $j$, bomo poimenovali poteza \emph{tipa 1}. Potezo, kjer vozlišču $u$ dodamo žeton, bomo poimenovali poteza \emph{tipa 2}. Izberimo še neko minljivo stanje $u$, ki bo naše začetno vozlišče. Začnimo z neko začetno razporeditvijo žetonov, ki je manjša ali enaka kot kritična, torej vsakemu vozlišču dodamo manj ali enako žetonov kot bi jih imel v kritični razporeditvi. Nadaljujemo z algoritmom, dokler se neka razporeditev žetonov na notranjih vozliščih $b_{1},b_{2},\ldots,b_{r}$ ne ponovi. Takšna razporeditev zagotovo obstaja, saj imamo končno število vozlišč, število žetonov na notranjih vozliščih ob istem času pa je navzgor omejeno z vsoto vseh izstopnih stopenj, torej imamo omejeno število različnih razporeditev žetonov na notranjih vozliščih. Vzemimo to razporeditev $b_{1},b_{2},\ldots,b_{r}$ za začetno. Lahko predpostavimo, da je $b_{i}<r_{i}$ za $i \neq u$ in $b_{u} = r_{u}$. Izberimo za to razporeditev zelene žetone. Nato dodajmo rdeče žetone, da razporeditev dopolnimo do kritične. Nato nadaljujemo z enakim zaporedjem potez, vendar uporabljamo samo zelene žetone. Ko se bo naša začetna razporeditev ponovila, bomo spet imeli kritično razporeditev, saj se rdečih žetonov nismo dotaknili. Poimenujmo ta modificiran postopek \emph{metoda A}. 
 Predpostavimo, da smo v metodi A v vozlišče $u$ dodali $m$ žetonov. Poglejmo zdaj še drugo metodo, ki jo bomo poimenovali \emph{metoda B}. V metodi B bomo začeli s kritično razporeditvijo žetonov in izvajali algoritem, dokler ne dodamo $m$ žetonov in ne moremo narediti več nobene poteze tipa 1. Pokazali bomo, da obe metodi pripeljeta do enake končne razporeditve žetonov. Ker vemo, da je končna razporeditev v metodi A kritična, bo enako veljalo tudi za metodo B. \newline
 \indent Naj bo $e_{1},e_{2},\ldots,e_{n}$ zaporedje potez, ki smo jih naredili v metodi A in naj bo $f_{1},f_{2},\ldots,f_{v}$ zaporedje potez v metodi B. Potezi $e_{1}$ in $f_{1}$ sta enaki, saj v obeh primerih izstrelimo $r_{u}$ žetonov iz vozlišča $u$. Z indukcijo bomo dokazali, da se vse poteze $e_{i}, i \in [n], $ pojavijo nekje v zaporedju $\{ f_{j}\} _{j\in [v] }$. Predpostavimo, da smo za poteze $e_{1},e_{2},\ldots,e_{k}$ našli enake poteze $f_{i_1},f_{i_2},\ldots,f_{i_k}$. Poglejmo potezo $e_{k+1}$. Če je to poteza tipa 2, mora obstajati enaka poteza $f_{i_{k+1}}$, saj v obeh metodah naredimo $m$ takšnih potez.
 Predpostavimo sedaj, da je $e_{k+1}$ poteza tipa 1, recimo, da izstrelimo $r_{t}$ žetonov iz vozlišča $t$. Če obstaja taka poteza $f_{i_{k+1}}$, torej da izstrelimo $r_{t}$ žetonov iz vozlišča $t$, ki se pojavi poleg $f_{i_1},f_{i_2},\ldots,f_{i_k}$ in preden se vse te izvedejo, potem lahko to potezo izberemo kot ,,ujemajočo se`` z $e_{k+1}$. Predpostavimo sedaj, da take poteze ni. Poteza $e_{k+1}$ je bila omogočena z zaporedjem potez $e_{1},e_{2},\ldots,e_{k}$. Torej more biti omogočena tudi z zaporedjem potez $f_{i_1},f_{i_2},\ldots,f_{i_k}$, saj smo v obeh metodah začeli z enako razporeditvijo žetonov in naredili enake poteze. Druge poteze, ki bi se lahko zgodile med izvajanjem teh potez, lahko kvečjemu povečajo število žetonov v stanju $t$. 
-Ponovno imamo potezo, ki jo lahko enačimo z $e_{k+1}$ in indukcijski korak je dokazan. Analogno dokažemo, da so vsi $f_{j}, j \in [v] $ vsebovani v $\{e_{i} \}_{i\in [n] }$. Zato sta ti dve množici potez enaki, kar implicira, da metodi A in B vodita do enake končne razporeditve, kar smo hoteli dokazati.
+Ponovno imamo potezo, ki jo lahko enačimo z $e_{k+1}$, in indukcijski korak je dokazan. Analogno dokažemo, da so vsi $f_{j}, j \in [v] $ vsebovani v $\{e_{i} \}_{i\in [n] }$. Zato sta ti dve množici potez enaki, kar implicira, da metodi A in B vodita do enake končne razporeditve, kar smo hoteli dokazati.
 \hfill \QED
 
 \vspace{\baselineskip}
@@ -79,7 +79,7 @@ Algoritem vrne dva pomembna rezultata, $n_{uj}$, pričakovano število obiskov s
 
 
 \noindent
-Preden začnemo z dokazom, vpeljimo še nekaj oznak. Naj bo $S = \{1,2,\ldots,n\}$ množica stanj in \\ $M = \{1,2,\ldots,r\}$ množica minljivih stanj. Z $P = (p_{ij})_{i,j=[n]}$ označimo prehodno matriko markovske verige. Prehodno matriko lahko zapišemo kot 
+Preden začnemo z dokazom, vpeljimo še nekaj oznak. Naj bo $S = \{1,2,\ldots,n\}$ množica stanj in \\ $M = \{1,2,\ldots,r\}$ množica minljivih stanj. S $P = (p_{ij})_{i,j=[n]}$ označimo prehodno matriko markovske verige. Prehodno matriko lahko zapišemo kot 
 $$ P =
 \begin{bmatrix} 
     Q & R \\
@@ -105,9 +105,9 @@ $$
 \noindent {\em Dokaz trditve \ref{formule}:\/}
 \begin{enumerate}
     \item[a)] Od prej vemo, da se nam bo v algoritmu, ki ga začnemo s poljubno začetno razporeditvijo, neka razporeditev $b_{1},b_{2},\ldots,b_{r}$ ponovila, saj je število različnih razporeditev končno. Znova poženimo algoritem, le da je tokrat začetna razporeditev enaka $b_{1},b_{2},\ldots,b_{r}$. Ker sta začetni in končni razporeditvi enaki, mora za vsako stanje veljati, da je število žetonov, ki so vanj prispeli, enako številu žetonov, ki so stanje zapustili. Zato je 
-$$w_{uu} = v_{u} + \sum_{k} w_{uk}p_{ku},$$ saj je število žetonov, ki so prispeli v začetno vozlišče $u$ enako številu žetonov, ki smo ga tekom algoritma dodali, torej $v_{u}$, zraven moramo pa dodati še žetone, ki so tekom algoritma vanj prispeli iz preostalih stanj, torej za vsako stanje $k$ prištejemo produkt $w_{uk}$, števila izstreljenih žetonov iz stanja $k$, in $p_{ku}$, ki predstavlja delež žetonov, ki pri vsaki izstrelitvi žetonov iz stanja $k$ gredo v $u$. 
+$$w_{uu} = v_{u} + \sum_{k} w_{uk}p_{ku},$$ saj je število žetonov, ki so prispeli v začetno vozlišče $u$, enako številu žetonov, ki smo ga tekom algoritma dodali, torej $v_{u}$, zraven moramo pa dodati še žetone, ki so tekom algoritma vanj prispeli iz preostalih stanj, torej za vsako stanje $k$ prištejemo produkt $w_{uk}$, števila izstreljenih žetonov iz stanja $k$, in $p_{ku}$, ki predstavlja delež žetonov, ki pri vsaki izstrelitvi žetonov iz stanja $k$ gredo v $u$. 
 Podobno premislimo, da velja
-$$w_{ui} = \sum_{k} w_{uk}p_{ki},$$ $i\neq u$.
+$$w_{ui} = \sum_{k} w_{uk}p_{ki},$$ za $i\neq u$.
 Naj bo $\overline{w}_{uj} = \frac{w_{uj}}{v_{u}}$. Potem je 
 \[
     \begin{split}
@@ -115,7 +115,7 @@ Naj bo $\overline{w}_{uj} = \frac{w_{uj}}{v_{u}}$. Potem je
         \overline{w}_{ui} &= \sum_{k} \overline{w}_{uk}p_{ki}, 
     \end{split}
 \]
-$i\neq u$.
+za $i\neq u$.
 \noindent Če to naredimo za vse izbire začetnega stanja $u$, dobimo matrično enačbo
 $$\overline{W} = I + \overline{W}Q$$
 oziroma
@@ -248,7 +248,7 @@ Zanima nas še, kdaj se igra konča. Z drugimi besedami, zanima nas, kolikšno j
 od igralcev evro osvoji. Engelov algoritem tudi v tem primeru nudi preprosto in elegantno rešitev. Opazujemo, kako 
 hitro se žetoni premikajo v končna vozlišča. Ob izvajanju algoritma v digraf skupno dodamo neko število žetonov, 
 ki ga bomo označili s $c$. Med postopkom izstreljujemo žetone iz vozlišč in ob tem povzročamo premike na naslednji način: ko eno od 
-vozlišč z $d$ sosedi (oz.\,\,$d+1$ sosedi v digrafu) izstreli žetone, s tem povzroči $d+1$ premikov. skupno število vseh premikov bomo označili z $m$.
+vozlišč z $d$ sosedi (oz.\,\,$d+1$ sosedi v digrafu) izstreli žetone, s tem povzroči $d+1$ premikov. Skupno število vseh premikov bomo označili z $m$.
 Tako je pričakovano število potez, preden žeton doseže katero koli končno vozlišče, enako $\frac{m}{c}$, saj velja, 
 da v $m$ potezah $c$ žetonov pride do končnih vozlišč. Pričakovana trajanje igre je torej enako $\frac{m}{c}$ potez.
 
@@ -374,7 +374,7 @@ Radi bi torej dokazali enakost $f_1+f_3+f_5+\ldots+f_{2n-1}=f_{2n}$, pri čemer 
 \end{itemize}
 
 \noindent V drugem koraku je potrebno dokazati še, da so števila žetonov v končnih vozliščih res zaporedni lihi členi
-Fibonaccijevega zaporedja. Pri tem bomo upoštevali dejstvo, da je vrstni red v katerem izstreljujemo žetone irelevanten za končni izid algoritma.
+Fibonaccijevega zaporedja. Pri tem bomo upoštevali dejstvo, da je vrstni red, v katerem izstreljujemo žetone, irelevanten za končni izid algoritma.
 Tudi tokrat rezultat dokazujemo z indukcijo.
 \begin{itemize}
     \item [] \textbf{Baza indukcije:} Dokaz za pot z enim vozliščem $P_1$ je očiten.
